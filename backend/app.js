@@ -44,6 +44,13 @@ app.use(express.json());
 /** Логгер запросов */
 app.use(requireLogger);
 
+/** Тест на автозапуск Node.js */
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
+
 app.post('/sign-up', validateSignUp, createUser);
 app.post('/sign-in', validateSignIn, login);
 
