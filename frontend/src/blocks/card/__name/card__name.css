@@ -1,0 +1,12 @@
+.card__name {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style:  normal;
+  font-weight: 900;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+  padding: 0;
+  width: 85%;
+  transition: all .2s linear;
+}

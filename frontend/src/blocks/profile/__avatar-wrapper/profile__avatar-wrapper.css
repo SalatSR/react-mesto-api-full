@@ -1,0 +1,25 @@
+.profile__avatar-wrapper {
+  position: relative;
+  border-radius: 50%;
+  display: block;
+  overflow: hidden;
+  margin: 0 auto;
+  padding: 0;
+  height: 120px;
+  width: 120px;
+  transition: all .2s linear;
+}
+
+@media screen and (min-width: 619px) {
+  .profile__avatar-wrapper {
+    margin: 0 15px 0 0;
+    padding: 0;
+  }
+}
+
+@media screen and (min-width: 880px) {
+  .profile__avatar-wrapper {
+    margin: 0 30px 0 0;
+    padding: 0;
+  }
+}

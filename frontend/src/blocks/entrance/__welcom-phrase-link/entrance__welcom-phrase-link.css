@@ -1,0 +1,13 @@
+.entrance__welcom-phrase-link {
+  color: #fff;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style:  normal;
+  font-weight: 400;
+  font-size: 14px;
+  text-decoration: none;
+  margin-left: 6px;
+}
+
+.entrance__welcom-phrase-link:hover {
+  opacity: .8;
+}

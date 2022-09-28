@@ -1,0 +1,12 @@
+.footer {
+  color: #545454;
+  padding: 0 19px 36px;
+  transition: all .2s linear;
+}
+
+@media screen and (min-width: 880px) {
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

@@ -1,0 +1,13 @@
+.content {
+  min-height: 100vh;
+  padding: 42px 19px 48px;
+  transition: all .2s linear;
+}
+
+@media screen and (min-width: 619px) {
+  .content {
+    padding-top: 40px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

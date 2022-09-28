@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/react-mesto-auth/static/css/main.18324c5e.css",
+    "main.js": "/react-mesto-auth/static/js/main.3d566018.js",
+    "static/media/Inter-Medium.woff?v=3.19": "/react-mesto-auth/static/media/Inter-Medium.9053572c46aeb4b16caa.woff",
+    "static/media/Inter-Black.woff?v=3.19": "/react-mesto-auth/static/media/Inter-Black.c6938660eec019fefd68.woff",
+    "static/media/Inter-Regular.woff?v=3.19": "/react-mesto-auth/static/media/Inter-Regular.8c206db99195777c6769.woff",
+    "static/media/Inter-Medium.woff2?v=3.19": "/react-mesto-auth/static/media/Inter-Medium.293fd13dbca5a3e450ef.woff2",
+    "static/media/Inter-Black.woff2?v=3.19": "/react-mesto-auth/static/media/Inter-Black.15ca31c0a2a68f76d2d1.woff2",
+    "static/media/Inter-Regular.woff2?v=3.19": "/react-mesto-auth/static/media/Inter-Regular.c8ba52b05a9ef10f4758.woff2",
+    "static/media/image-logo.svg": "/react-mesto-auth/static/media/image-logo.5bc6253f8deaa6a7aae2ff82a8e8b7fe.svg",
+    "static/media/image-button-like.svg": "/react-mesto-auth/static/media/image-button-like.0e390048c288271ab07f.svg",
+    "static/media/image-button-trash.svg": "/react-mesto-auth/static/media/image-button-trash.2af49b82d305a6ea3442.svg",
+    "index.html": "/react-mesto-auth/index.html",
+    "static/media/image-button-like_active.svg": "/react-mesto-auth/static/media/image-button-like_active.1f61f9e5631691ec5093.svg",
+    "static/media/image-button-edit.svg": "/react-mesto-auth/static/media/image-button-edit.3de4fcf0acf1cef52dd8.svg",
+    "static/media/image-button-avatar-edit.svg": "/react-mesto-auth/static/media/image-button-avatar-edit.ae1a976ddb506239e9f0.svg",
+    "static/media/image-button-add.svg": "/react-mesto-auth/static/media/image-button-add.d5d6f8af0577b9c95ee4.svg",
+    "main.18324c5e.css.map": "/react-mesto-auth/static/css/main.18324c5e.css.map",
+    "main.3d566018.js.map": "/react-mesto-auth/static/js/main.3d566018.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.18324c5e.css",
+    "static/js/main.3d566018.js"
+  ]
+}

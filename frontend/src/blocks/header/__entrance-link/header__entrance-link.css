@@ -1,0 +1,16 @@
+.header__entrance-link {
+  box-sizing: border-box;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 22px;
+  color: #fff;
+  margin: 0 24px 0 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.header__entrance-link:hover {
+  opacity: .8;
+}

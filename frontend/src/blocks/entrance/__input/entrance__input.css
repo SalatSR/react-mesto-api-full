@@ -1,0 +1,21 @@
+.entrance__input {
+  color: rgba(204, 204, 204, 1);
+  ;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style:  normal;
+  font-weight: 400;
+  font-size: 14px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(204, 204, 204, 1);
+  box-sizing: border-box;
+  min-height: 27px;
+  margin: 0 0 30px;
+  padding: 0 0 8px;
+  max-width: 358px;
+  width: 100%;
+}
+
+.entrance__input:last-child {
+  margin-bottom: 0;
+}

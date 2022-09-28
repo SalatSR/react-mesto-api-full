@@ -1,0 +1,26 @@
+.cards {
+  padding: 36px 0 0;
+  transition: all .2s linear;
+}
+
+@media screen and (min-width: 619px) {
+  .cards {
+    padding-top: 50px;
+    display: grid;
+    gap: 17px;
+    grid-template-columns:  repeat(2, 1fr);
+    grid-template-rows: max-content max-content;
+    margin: 0 auto;
+    width: 591px;
+  }
+}
+
+@media screen and (min-width: 880px) {
+  .cards {
+    gap: 20px 17px;
+    grid-template-columns:  repeat(3, 1fr);
+    grid-template-rows: max-content max-content max-content;
+    margin: 0 auto;
+    width: auto;
+  }
+}

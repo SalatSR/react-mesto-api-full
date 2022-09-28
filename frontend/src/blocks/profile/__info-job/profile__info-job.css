@@ -1,0 +1,24 @@
+.profile__info-job {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style:  normal;
+  font-weight: 400;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+  padding: 0;
+  transition: all .2s linear;
+}
+
+@media screen and (min-width: 619px) {
+  .profile__info-job {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 880px) {
+  .profile__info-job {
+    font-size: 18px;
+  }
+}
