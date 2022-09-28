@@ -19,8 +19,10 @@ const { PORT = 3000 } = process.env;
 /** Настроки CORS параметров (разрешены адреса и куки) */
 const allowedCors = {
   origin: [
-    'https://salatsr.nomoredomains.club',
     'https://salatsr.nomorepartiesxyz.ru',
+    'http://salatsr.nomorepartiesxyz.ru',
+    'https://salatsr.nomoredomains.club',
+    'http://salatsr.nomoredomains.club',
     'http://localhost:3001',
     'https://localhost:3001',
   ],
