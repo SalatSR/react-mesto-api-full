@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
 const userRouter = require('./routes/users');
@@ -13,7 +14,17 @@ const auth = require('./middlewares/auth');
 const NotFoundError = require('./errors/NotFoundError');
 
 dotenv.config();
-const { PORT = 3000 } = process.env;
+const { PORT = 3001 } = process.env;
+
+/** Настроки CORS параметров (разрешены адреса и куки) */
+const allowedCors = {
+  origin: [
+    'https://salatsr.nomorepartiesxyz.ru',
+    'http://localhost:3000',
+    'https://localhost:3000',
+  ],
+  credentials: true,
+};
 
 const app = express();
 
@@ -23,14 +34,17 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
   useUnifiedTopology: false,
 });
 
+/** Проверяем CORS параметры запросов */
+app.use(cors(allowedCors));
+
 /** Конвертируем запросы в формат json */
 app.use(express.json());
 
 /** Логгер запросов */
 app.use(requireLogger);
 
-app.post('/signup', validateSignUp, createUser);
-app.post('/signin', validateSignIn, login);
+app.post('/sign-up', validateSignUp, createUser);
+app.post('/sign-in', validateSignIn, login);
 
 app.use(cookieParser());
 app.use(auth);
@@ -38,7 +52,7 @@ app.use(auth);
 /** Защищённые маршруты */
 app.use('/', userRouter);
 app.use('/', cardRouter);
-app.get('/signout', (req, res) => {
+app.get('/sign-out', (req, res) => {
   res.clearCookie('jwt').send({ message: 'Выход' });
 });
 

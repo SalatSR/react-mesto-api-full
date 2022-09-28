@@ -48,16 +48,12 @@ function App() {
    * Если есть логиним пользователя и отправляем на главную
    */
   useEffect(() => {
-    let token = localStorage.getItem("jwt");
-    if (token) {
-      authApi.checkToken(token)
-        .then((res) => {
-          setLoggedIn(true);
-          setUserEmail(res.data.email);
-          history.push('/');
-        })
-        .catch(err => console.log(err));
-    };
+    api.getUserData()
+      .then(res => {
+        setLoggedIn(true);
+        history.push('/');
+      })
+      .catch(err => console.log(`Error: ${err}`));
   }, [history]);
 
   function handleEditAvatarClick() {
@@ -109,7 +105,13 @@ function App() {
       setCards((state) => state.map(c => c._id === card._id ? newCard : c));
     }
     /** Снова проверяем, есть ли уже лайк на этой карточке */
-    const isLiked = card.likes.some(i => i._id === currentUser._id)
+    const isLiked = card.likes.some(function(i) {
+      if (i === currentUser._id) {
+        return true;
+      } else {
+        return false;
+      }
+    });
     if (!isLiked) {
       /** Отправляем запрос в API и получаем обновлённые данные карточки */
       api.likeCard(card._id)
@@ -148,7 +150,6 @@ function App() {
   function handleLogin(email, password) {
     return authApi.auth(email, password)
       .then((res) => {
-        localStorage.setItem("jwt", res.token);
         setLoggedIn(true);
         setUserEmail(email);
         history.push('/');
@@ -174,14 +175,18 @@ function App() {
       });
   }
   /** Проверяем адресс, на который ссылается кнопка в Header
-   * если адрес ссылается на "/sign-out" - удаляем токен из хранилища
+   * если адрес ссылается на "/sign-out" - удаляем токен из куки
    * разлогиниваем пользователя
   */
   function onHeaderLinkClick(link) {
-    if (link === "/sign-out") {
-      localStorage.removeItem('jwt');
-      setLoggedIn(false)
-      history.push("/sign-in")
+    if (link === '/sign-out') {
+      api.exit(link)
+        .then((res) => {
+          setLoggedIn(false)
+          history.push("/sign-in")
+        }
+        )
+        .catch(err => console.log(`Error: ${err}`));
     }
   }
 

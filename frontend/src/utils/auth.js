@@ -1,4 +1,4 @@
-export const baseURL = "https://auth.nomoreparties.co";
+export const baseURL = "https://api.salatsr.nomorepartiesxyz.ru";
 
 // Проверка статуса запроса
 function checkResponse(res) {
@@ -9,8 +9,9 @@ function checkResponse(res) {
 }
 
 export const reg = (email, password) => {
-  return fetch(`${baseURL}/signup`, {
+  return fetch(`${baseURL}/sign-up`, {
     method: "POST",
+    credentials: 'include',
     headers: {
       "Content-Type": "application/json"
     },
@@ -23,8 +24,9 @@ export const reg = (email, password) => {
 };
 
 export const auth = (email, password) => {
-  return fetch(`${baseURL}/signin`, {
+  return fetch(`${baseURL}/sign-in`, {
     method: "POST",
+    credentials: 'include',
     headers: {
       "Content-Type": "application/json"
     },
@@ -34,20 +36,4 @@ export const auth = (email, password) => {
     })
   })
     .then((res => checkResponse(res)))
-};
-
-export const checkToken = (token) => {
-  return fetch(`${baseURL}/users/me`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`
-    }
-  })
-    .then((res) => {
-      if (res.ok) {
-        return res.json()
-      }
-      return Promise.reject(`Error: ${res.status} ${res.statusText}`);
-    });
 };

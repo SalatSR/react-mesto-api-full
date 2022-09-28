@@ -13,6 +13,7 @@ class Api {
 // Получаем карточки с сервера
   getInitialCards() {
     return fetch(`${this._url}/cards`, {
+      credentials: 'include',
       headers: this._headers
     })
     .then(res => this._checkResponse(res))
@@ -20,6 +21,7 @@ class Api {
 // Получаем данные пользователя
   getUserData() {
     return fetch(`${this._url}/users/me`, {
+      credentials: 'include',
       headers: this._headers
     })
     .then(res => this._checkResponse(res))
@@ -28,6 +30,7 @@ class Api {
   setUserData(data) {
     return fetch(`${this._url}/users/me`, {
       method: 'PATCH',
+      credentials: 'include',
       headers: this._headers,
       body: JSON.stringify({
         name: data.name,
@@ -40,6 +43,7 @@ class Api {
   editProfileAvatar(item) {
     return fetch(`${this._url}/users/me/avatar`, {
       method: 'PATCH',
+      credentials: 'include',
       headers: this._headers,
       body: JSON.stringify(
         item
@@ -51,6 +55,7 @@ class Api {
   addNewCard(item) {
     return fetch(`${this._url}/cards`, {
       method: 'POST',
+      credentials: 'include',
       headers: this._headers,
       body: JSON.stringify({
         name: item.name,
@@ -63,22 +68,34 @@ class Api {
   deleteCard(cardId) {
     return fetch(`${this._url}/cards/${cardId}`, {
       method: 'DELETE',
+      credentials: 'include',
       headers: this._headers
     })
     .then(res => this._checkResponse(res))
   }
 // Ставим лайк
   likeCard(cardId) {
-    return fetch(`${this._url}/cards/likes/${cardId}`, {
+    return fetch(`${this._url}/cards/${cardId}/likes`, {
       method: 'PUT',
+      credentials: 'include',
       headers: this._headers
     })
     .then(res => this._checkResponse(res))
   }
 // Убираем лайк
   unlikeCard(cardId) {
-    return fetch(`${this._url}/cards/likes/${cardId}`, {
+    return fetch(`${this._url}/cards/${cardId}/likes`, {
       method: 'DELETE',
+      credentials: 'include',
+      headers: this._headers
+    })
+    .then(res => this._checkResponse(res))
+  }
+  // Выход
+  exit(signout) {
+    return fetch(`${this._url}${signout}`, {
+      method: 'GET',
+      credentials: 'include',
       headers: this._headers
     })
     .then(res => this._checkResponse(res))
@@ -86,9 +103,9 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-43',
+  baseUrl: 'https://api.salatsr.nomorepartiesxyz.ru',
+  credentials: 'include',
   headers: {
-    authorization: '646992da-1ad1-4569-97b4-38159e3734ad',
     'Content-Type': 'application/json'
   }
 });
