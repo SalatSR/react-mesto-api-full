@@ -14,14 +14,14 @@ const auth = require('./middlewares/auth');
 const NotFoundError = require('./errors/NotFoundError');
 
 dotenv.config();
-const { PORT = 3001 } = process.env;
+const { PORT = 3000 } = process.env;
 
 /** Настроки CORS параметров (разрешены адреса и куки) */
 const allowedCors = {
   origin: [
     'https://salatsr.nomorepartiesxyz.ru',
-    'http://localhost:3000',
-    'https://localhost:3000',
+    'http://localhost:3001',
+    'https://localhost:3001',
   ],
   credentials: true,
 };
