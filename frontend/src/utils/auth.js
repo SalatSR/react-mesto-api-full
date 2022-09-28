@@ -1,4 +1,4 @@
-export const baseURL = "https://api.salatsr.nomorepartiesxyz.ru";
+export const baseURL = "https://api.salatsr.nomoredomains.club";
 
 // Проверка статуса запроса
 function checkResponse(res) {
