@@ -1,10 +1,14 @@
 const bcrypt = require('bcryptjs');
+const dotenv = require('dotenv');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 const ValidationError = require('../errors/ValidationError');
 const AuthError = require('../errors/AuthError');
 const NotFoundError = require('../errors/NotFoundError');
 const DuplicateError = require('../errors/DuplicateError');
+
+dotenv.config();
+const { NODE_ENV, JWT_SECRET } = process.env;
 
 /** Возвращаем всех пользователей */
 const getUsers = (req, res, next) => {
@@ -137,9 +141,10 @@ const login = (req, res, next) => {
       bcrypt.compare(password, user.password)
         .then((isUserValid) => {
           if (isUserValid) {
-            const token = jwt.sign({
-              _id: user._id,
-            }, 'SECRET');
+            const token = jwt.sign(
+              { _id: user._id },
+              NODE_ENV === 'production' ? JWT_SECRET : 'SECRET',
+            );
             res.cookie('jwt', token, {
               maxAge: 3600000,
               httpOnly: true,
