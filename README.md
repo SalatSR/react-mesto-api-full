@@ -5,6 +5,6 @@
   
 IP 84.201.164.17
 
-Frontend https://salatsr.nomorepartiesxyz.ru , http://salatsr.nomorepartiesxyz.ru
+Frontend https://salatsr.nomoredomains.club
 
-Backend https://api.salatsr.nomorepartiesxyz.ru , http://api.salatsr.nomorepartiesxyz.ru
+Backend https://api.salatsr.nomoredomains.club

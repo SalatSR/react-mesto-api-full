@@ -103,7 +103,7 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: 'http://api.salatsr.nomorepartiesxyz.ru',
+  baseUrl: 'https://api.salatsr.nomoredomains.club',
   credentials: 'include',
   headers: {
     'Content-Type': 'application/json'
