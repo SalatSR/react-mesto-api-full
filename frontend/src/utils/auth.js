@@ -9,7 +9,7 @@ function checkResponse(res) {
 }
 
 export const reg = (email, password) => {
-  return fetch(`${baseURL}/sign-up`, {
+  return fetch(`${baseURL}/signup`, {
     method: "POST",
     credentials: 'include',
     headers: {
@@ -24,7 +24,7 @@ export const reg = (email, password) => {
 };
 
 export const auth = (email, password) => {
-  return fetch(`${baseURL}/sign-in`, {
+  return fetch(`${baseURL}/signin`, {
     method: "POST",
     credentials: 'include',
     headers: {

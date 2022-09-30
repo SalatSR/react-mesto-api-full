@@ -14,7 +14,7 @@ function Register(props) {
       onSubmit={handleSubmit}
     >
       <span className="entrance__welcom-phrase">Уже зарегистрированы?
-        <Link to="/sign-in" className="entrance__welcom-phrase-link">Войти</Link>
+        <Link to="/signin" className="entrance__welcom-phrase-link">Войти</Link>
       </span>
     </Auth>
   );

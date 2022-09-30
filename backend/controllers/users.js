@@ -1,5 +1,4 @@
 const bcrypt = require('bcryptjs');
-const dotenv = require('dotenv');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 const ValidationError = require('../errors/ValidationError');
@@ -7,7 +6,6 @@ const AuthError = require('../errors/AuthError');
 const NotFoundError = require('../errors/NotFoundError');
 const DuplicateError = require('../errors/DuplicateError');
 
-dotenv.config();
 const { NODE_ENV, JWT_SECRET } = process.env;
 
 /** Возвращаем всех пользователей */

@@ -1,4 +1,5 @@
 const { celebrate, Joi } = require('celebrate');
+const { regularLink } = require('./regularExp');
 
 const validateId = celebrate({
   params: Joi.object().keys({
@@ -15,7 +16,7 @@ const validateCardId = celebrate({
 const validateCard = celebrate({
   body: Joi.object().keys({
     name: Joi.string().required().min(2).max(30),
-    link: Joi.string().required().pattern(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)/),
+    link: Joi.string().required().pattern(regularLink),
   }),
 });
 
@@ -28,7 +29,7 @@ const validateUserInfo = celebrate({
 
 const validateUserAvatar = celebrate({
   body: Joi.object().keys({
-    avatar: Joi.string().required().pattern(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)/),
+    avatar: Joi.string().required().pattern(regularLink),
   }),
 });
 
@@ -36,7 +37,7 @@ const validateSignUp = celebrate({
   body: Joi.object().keys({
     name: Joi.string().min(2).max(30),
     about: Joi.string().min(2).max(30),
-    avatar: Joi.string().pattern(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)/),
+    avatar: Joi.string().pattern(regularLink),
     email: Joi.string().required().email(),
     password: Joi.string().required(),
   }),

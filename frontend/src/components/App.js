@@ -166,7 +166,7 @@ function App() {
       .then((res) => {
         setIsSucceed(true);
         setIsInfoTooltip(true);
-        history.push("/sign-in");
+        history.push("/signin");
       })
       .catch((err) => {
         setIsSucceed(false);
@@ -175,15 +175,15 @@ function App() {
       });
   }
   /** Проверяем адресс, на который ссылается кнопка в Header
-   * если адрес ссылается на "/sign-out" - удаляем токен из куки
+   * если адрес ссылается на "/signout" - удаляем токен из куки
    * разлогиниваем пользователя
   */
   function onHeaderLinkClick(link) {
-    if (link === '/sign-out') {
+    if (link === '/signout') {
       api.exit(link)
         .then((res) => {
           setLoggedIn(false)
-          history.push("/sign-in")
+          history.push("/signin")
         }
         )
         .catch(err => console.log(`Error: ${err}`));
@@ -200,7 +200,7 @@ function App() {
               loggedIn={loggedIn}
             >
               <Header
-                link="/sign-out"
+                link="/signout"
                 userEmail={userEmail}
                 btnText="Выйти"
                 onHeaderLinkClick={onHeaderLinkClick}
@@ -215,9 +215,9 @@ function App() {
                 onCardDelete={handleCardDelete}
               />
             </ProtectedRoute>
-            <Route path="/sign-up">
+            <Route path="/signup">
               <Header
-                link="/sign-in"
+                link="/signin"
                 btnText="Войти"
                 onHeaderLinkClick={onHeaderLinkClick}
               />
@@ -225,9 +225,9 @@ function App() {
                 handleRegister={handleRegister}
               />
             </Route>
-            <Route path="/sign-in">
+            <Route path="/signin">
               <Header
-                link="/sign-up"
+                link="/signup"
                 btnText="Регистрация"
                 onHeaderLinkClick={onHeaderLinkClick}
               />
@@ -239,7 +239,7 @@ function App() {
               {loggedIn ?
                 (<Redirect to="/" />
                 ) : (
-                  <Redirect to="/sign-in" />
+                  <Redirect to="/signin" />
                 )}
             </Route>
           </Switch>

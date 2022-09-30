@@ -1,6 +1,6 @@
+const dotenv = require('dotenv');
 const express = require('express');
 const mongoose = require('mongoose');
-const dotenv = require('dotenv');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
@@ -53,8 +53,8 @@ app.get('/crash-test', () => {
   }, 0);
 });
 
-app.post('/sign-up', validateSignUp, createUser);
-app.post('/sign-in', validateSignIn, login);
+app.post('/signup', validateSignUp, createUser);
+app.post('/signin', validateSignIn, login);
 
 app.use(cookieParser());
 app.use(auth);
@@ -62,8 +62,13 @@ app.use(auth);
 /** Защищённые маршруты */
 app.use('/', userRouter);
 app.use('/', cardRouter);
-app.get('/sign-out', (req, res) => {
+app.get('/signout', (req, res) => {
   res.clearCookie('jwt').send({ message: 'Выход' });
+});
+
+/** Ошибка 404 */
+app.use((req, res, next) => {
+  next(new NotFoundError('Страница не найдена'));
 });
 
 /** Логгер ошибок */
@@ -73,11 +78,6 @@ app.use(errorLogger);
 
 /** Ошибки celebrate */
 app.use(errors());
-
-/** Ошибка 404 */
-app.use((req, res, next) => {
-  next(new NotFoundError('Страница не найдена'));
-});
 
 /** Централизованнный обработчик ошибок */
 app.use((err, req, res, next) => {
